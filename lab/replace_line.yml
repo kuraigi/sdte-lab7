@@ -1,0 +1,19 @@
+- hosts: host01:host02
+  tasks:
+  - name: "Replace line in file"
+    become: yes
+    become_user: root
+    replace: 
+        path: /var/www/default/index.html
+        regexp: 'like'
+        replace: 'try'
+        
+- hosts: host03
+  tasks:
+  - name: "Replace line in file"
+    become: yes
+    become_user: root
+    replace: 
+        path: /var/www/default/index.html
+        regexp: 'sleep'
+        replace: "wake"
